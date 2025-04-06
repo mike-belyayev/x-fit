@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Play, Dumbbell, HeartPulse, Calendar, Award } from "lucide-react";
+import HeroModel from './components/HeroModel'
 
 export default function Home() {
   const featuredExercises = [
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white font-sans">
-      {/* Hero Section */}
+      {/* Hero Section with 3D Model */}
       <section className="relative py-20 px-6 sm:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -42,8 +42,7 @@ export default function Home() {
               Transform Your Body <span className="text-blue-600">For Free</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-lg">
-              Access professional workout plans, exercise videos, and progress tracking - 
-              no subscriptions, no hidden fees.
+              Experience interactive 3D exercise guides with professional motion-capture technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl">
@@ -54,16 +53,8 @@ export default function Home() {
                 See Demo
               </button>
             </div>
-          </div>
-          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
-            <Image 
-              src="/images/hero-image.jpg" 
-              alt="Person exercising"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          </div>        
+          <HeroModel />
         </div>
       </section>
 
@@ -94,8 +85,8 @@ export default function Home() {
           {[
             {
               icon: <Dumbbell className="w-8 h-8 text-blue-600" />,
-              title: "Custom Workouts",
-              description: "Tailored plans for all fitness levels"
+              title: "3D Exercise Guides",
+              description: "Interactive models with professional animations"
             },
             {
               icon: <HeartPulse className="w-8 h-8 text-blue-600" />,
@@ -136,11 +127,10 @@ export default function Home() {
             {featuredExercises.map((workout, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                 <div className="relative h-48">
-                  <Image
+                  <img
                     src={workout.image}
                     alt={workout.name}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                     <span className="inline-block px-2 py-1 bg-blue-600 text-white text-xs rounded-full mb-1">
